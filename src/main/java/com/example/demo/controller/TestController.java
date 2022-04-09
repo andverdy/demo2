@@ -15,6 +15,10 @@ public class TestController {
 	
 	@GetMapping("/getTest")
 	public String getSaluto(@RequestParam Integer token) {
+		Integer localToken = 3845842;
+		if (localToken == token) {
+			return this.TOKEN + localToken;
+		}
 		
 		return this.TOKEN + token;
 	}

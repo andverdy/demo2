@@ -19,6 +19,7 @@ public class TestController {
 		if (localToken == token) {
 			return this.TOKEN + localToken;
 		}
+		System.out.println(token);
 		
 		return this.TOKEN + token;
 	}

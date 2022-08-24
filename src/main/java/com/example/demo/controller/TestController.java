@@ -13,19 +13,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 	
 	@NonNull
-	private String nome;
+	private String cognome;
 	
 	private final String TOKEN = "TOKEN";
 	
 	@GetMapping("/getTest")
 	public String getSaluto(@RequestParam Integer token) {
+		DatiAnagrafici dati = new DatiAnagrafici();
+		dati.setCognome(this.cognome);
+		dati.setIndirizzo("via garibaldi 13");
+		dati.setNome("pippo");
+		dati.setEta(19);
 		Integer localToken = 3845842;
 		if (localToken == token) {
 			return this.TOKEN + localToken;
 		}
 		System.out.println(token);
 		
-		return this.TOKEN + token + this.nome;
+		return this.TOKEN + token + dati.toString();
 	}
 
 }

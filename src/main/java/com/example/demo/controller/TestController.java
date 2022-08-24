@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class TestController {
 	
+	@NonNull
+	private String nome;
+	
 	private final String TOKEN = "TOKEN";
 	
 	@GetMapping("/getTest")
@@ -21,7 +25,7 @@ public class TestController {
 		}
 		System.out.println(token);
 		
-		return this.TOKEN + token;
+		return this.TOKEN + token + this.nome;
 	}
 
 }
